@@ -1,3 +1,4 @@
+![Audio Resolver](assets/banner1.png)
 # Audio Resolver
 
 Audio Resolver is an Omarchy status bar plugin that prepares camera footage
@@ -5,6 +6,8 @@ for DaVinci Resolve on Linux. Resolve cannot decode AAC audio on Linux, so the
 plugin converts AAC tracks to uncompressed PCM 16-bit (`pcm_s16le`) and saves
 the result in a Resolve-ready `.mov` file. The video stream is copied without
 re-encoding, so conversion is fast and preserves the original image quality.
+
+![Audio Resolver screenshot](assets/screenshot.png)
 
 Choose a source media folder, such as a camera or SD card, and a destination
 folder for the converted `.mov` files. Enable the watcher to process new
@@ -63,6 +66,8 @@ selected destination.
 As with any local shell plugin, only install it from a repository you trust and
 review updates before enabling it. `ffmpeg`, `ffprobe`, `inotifywait`, and the
 Omarchy file picker are external dependencies.
+
+![Audio Resolver](assets/banner2.png)
 
 ## License
 
