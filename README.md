@@ -54,18 +54,7 @@ rm -f ~/.config/systemd/user/audio-resolver.service
 systemctl --user daemon-reload
 ```
 
-## Security
-
-Audio Resolver runs as the logged-in user inside the unsandboxed Omarchy shell.
-It does not make network requests or require elevated privileges. Folder paths
-are passed as arguments to the picker, `ffmpeg`, `ffprobe`, and helper scripts;
-configuration files are written with shell-safe quoting. The watcher only reads
-files from the selected source folder and writes converted files to the
-selected destination.
-
-As with any local shell plugin, only install it from a repository you trust and
-review updates before enabling it. `ffmpeg`, `ffprobe`, `inotifywait`, and the
-Omarchy file picker are external dependencies.
+For security details and vulnerability reporting, see [SECURITY.md](SECURITY.md).
 
 ## License
 
