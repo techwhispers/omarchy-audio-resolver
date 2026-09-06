@@ -29,3 +29,41 @@ creates `filename_pcm.mov`.
 omarchy plugin add https://github.com/quazix/omarchy-audio-resolver
 omarchy plugin enable quazix.audio-resolver right
 ```
+
+## Uninstall
+
+Disable the widget first, then remove its local plugin directory:
+
+```bash
+omarchy plugin disable quazix.audio-resolver
+rm -rf ~/.config/omarchy/plugins/quazix.audio-resolver
+omarchy restart shell
+```
+
+Audio Resolver also installs a user service and stores its settings and import
+history outside the plugin directory. Remove them separately only if you want
+to delete all local data:
+
+```bash
+systemctl --user disable --now audio-resolver.service
+rm -rf ~/.config/audio-resolver ~/.local/state/audio-resolver
+rm -f ~/.config/systemd/user/audio-resolver.service
+systemctl --user daemon-reload
+```
+
+## Security
+
+Audio Resolver runs as the logged-in user inside the unsandboxed Omarchy shell.
+It does not make network requests or require elevated privileges. Folder paths
+are passed as arguments to the picker, `ffmpeg`, `ffprobe`, and helper scripts;
+configuration files are written with shell-safe quoting. The watcher only reads
+files from the selected source folder and writes converted files to the
+selected destination.
+
+As with any local shell plugin, only install it from a repository you trust and
+review updates before enabling it. `ffmpeg`, `ffprobe`, `inotifywait`, and the
+Omarchy file picker are external dependencies.
+
+## License
+
+Audio Resolver is released under the MIT License. See [LICENSE](LICENSE).
