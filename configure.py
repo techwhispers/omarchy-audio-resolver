@@ -38,6 +38,7 @@ def main() -> int:
         config.write(f"SOURCE_DIR={shlex.quote(source)}\n" if source else "")
         config.write(f"DESTINATION_DIR={shlex.quote(destination)}\n" if destination else "")
         config.write(f"OUTPUT_LABEL={shlex.quote(label_arg)}\n")
+    # Atomic replacement prevents an interrupted save from leaving invalid settings.
     os.replace(temporary, config_path)
     return 0
 

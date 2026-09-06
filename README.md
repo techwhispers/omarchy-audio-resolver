@@ -26,7 +26,7 @@ creates `filename_pcm.mov`.
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/quazix/omarchy-audio-resolver
+omarchy plugin add https://github.com/techwhispers/omarchy-audio-resolver
 omarchy plugin enable quazix.audio-resolver right
 ```
 

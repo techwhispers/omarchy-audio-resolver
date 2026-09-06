@@ -27,6 +27,7 @@ def save(state: dict) -> None:
     with os.fdopen(fd, "w") as output:
         json.dump(state, output, indent=2, sort_keys=True)
         output.write("\n")
+    # Replace the manifest only after the complete JSON document is on disk.
     os.replace(temporary, STATE_PATH)
 
 

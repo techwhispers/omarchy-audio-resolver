@@ -28,6 +28,7 @@ convert_file() {
   is_video "$input" || return 0
   local filename="${input##*/}"
   local stem="${filename%.*}"
+  # Track source metadata so changing the output label does not re-import unchanged media.
   if "$PYTHON" "$STATE_HELPER" check "$input"; then
     log "SKIP: already imported: $filename"
     return 0
@@ -46,6 +47,7 @@ convert_file() {
   fi
   local temporary="${output}.part"
   log "CONVERTING: $filename -> ${output##*/}"
+  # Keep partial files hidden from Resolve, then publish the completed file atomically.
   if ffmpeg -hide_banner -loglevel error -i "$input" -map 0 -c:v copy -c:a pcm_s16le -c:s copy -f mov -y "$temporary" >>"$LOG_FILE" 2>&1; then
     mv -- "$temporary" "$output"
     "$PYTHON" "$STATE_HELPER" record "$input" "$output"

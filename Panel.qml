@@ -63,6 +63,7 @@ Panel {
   Process {
     id: statusProc
     command: ["bash", "-c",
+      // Poll because the service can also be started or stopped outside this panel.
       "active=$(systemctl --user is-active audio-resolver.service 2>/dev/null || true); " +
       "source \"$HOME/.config/audio-resolver/config.env\" 2>/dev/null || true; " +
       "log=$(tail -n 1 \"$HOME/.local/share/audio-resolver/convert.log\" 2>/dev/null || true); " +
@@ -158,6 +159,7 @@ Panel {
       }
     }
     onPressed: function(buttonCode) {
+      // Match Omarchy's bar convention: primary click opens details, secondary click toggles the quick action.
       if (buttonCode === Qt.LeftButton) {
         root.toggle()
       } else if (buttonCode === Qt.RightButton) {
