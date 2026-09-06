@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "quazix.audio-resolver",
+  "name": "Audio Resolver",
+  "version": "1.0.0",
+  "author": "quazix",
+  "license": "MIT",
+  "description": "Prepare camera footage for DaVinci Resolve on Linux by converting AAC audio to PCM in Resolve-ready .mov files without re-encoding video.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Audio Resolver",
+    "description": "Watch camera or SD card media folders, or import footage manually, into a Resolve-compatible destination.",
+    "category": "Media",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
