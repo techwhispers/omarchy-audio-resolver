@@ -3,7 +3,7 @@
   "id": "quazix.audio-resolver",
   "name": "Audio Resolver",
   "version": "1.0.0",
-  "author": "quazix",
+  "author": "TechWhispers",
   "license": "MIT",
   "description": "Prepare camera footage for DaVinci Resolve on Linux by converting AAC audio to PCM in Resolve-ready .mov files without re-encoding video.",
   "kinds": ["bar-widget"],

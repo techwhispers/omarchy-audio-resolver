@@ -18,7 +18,7 @@ Panel {
   property string lastLog: "No recent conversions"
   property string actionStatus: ""
   property string outputLabel: ""
-  readonly property string pluginDir: "/home/quazix/.config/omarchy/plugins/quazix.audio-resolver"
+  readonly property string pluginDir: (Quickshell.env("HOME") || "") + "/.config/omarchy/plugins/quazix.audio-resolver"
   readonly property string fontFamily: bar ? bar.fontFamily : Style.font.family
   readonly property color foreground: bar ? bar.foreground : Color.foreground
   readonly property color muted: Qt.darker(foreground, 1.6)
