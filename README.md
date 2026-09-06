@@ -1,4 +1,4 @@
-![Audio Resolver](assets/banner1.png)
+![Audio Resolver](assets/banner.png)
 # Audio Resolver
 
 Audio Resolver is an Omarchy status bar plugin that prepares camera footage
@@ -66,8 +66,6 @@ selected destination.
 As with any local shell plugin, only install it from a repository you trust and
 review updates before enabling it. `ffmpeg`, `ffprobe`, `inotifywait`, and the
 Omarchy file picker are external dependencies.
-
-![Audio Resolver](assets/banner2.png)
 
 ## License
 
