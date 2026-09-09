@@ -1,0 +1,15 @@
+[Unit]
+Description=Audio Resolver watcher
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash %h/.config/omarchy/plugins/quazix.audio-resolver/audio-resolver-watch.sh
+WorkingDirectory=%h/.config/omarchy/plugins/quazix.audio-resolver
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
